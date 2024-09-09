@@ -1,6 +1,7 @@
 {
     "require": {
         "league/oauth2-client": "^2.7",
-        "symfony/dotenv": "^7.1"
+        "symfony/dotenv": "^7.1",
+        "firebase/php-jwt": "^6.10"
     }
 }
