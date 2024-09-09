@@ -1,11 +1,11 @@
 
-#Aplicação utilizando PHP (sem frameworks) integrada com o login do Keycloak.
+## Aplicação utilizando PHP (sem frameworks) integrada com o login do Keycloak.
 
-#Utilização da biblioteca "league/oauth2-client" que foi projetada para ser usada com qualquer serviço que suporte o padrão OAuth 2.0.
+### Utilização da biblioteca "league/oauth2-client" para comunicação com serviço que suporte o padrão OAuth 2.0.
 https://oauth2-client.thephpleague.com/
 
-#Necessidade de passar o parâmetro "code" na chamada do método getAccessToken() devido a uma mudança no endpoint.
+### Necessidade de passar o parâmetro "code" na chamada do método getAccessToken() devido a uma mudança no endpoint.
 https://www.keycloak.org/docs/latest/upgrading/index.html#userinfo-endpoint-changes
 
-#Criei o docker-compose.yml baseado no comando "docker run" da documentação.
+### Criei o docker-compose.yml baseado no comando "docker run" da documentação.
 https://www.keycloak.org/getting-started/getting-started-docker
