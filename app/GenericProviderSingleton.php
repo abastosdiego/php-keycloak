@@ -2,6 +2,7 @@
 require 'vendor/autoload.php';
 
 use League\OAuth2\Client\Provider\GenericProvider;
+use Symfony\Component\Dotenv\Dotenv;
 
 class GenericProviderSingleton {
     private static $instance = null;
@@ -25,14 +26,20 @@ class GenericProviderSingleton {
         return $this->provider;
     }
 
+    private function loadEnv() {
+        $dotenv = new Dotenv();
+        $dotenv->load(__DIR__.'/.env');
+    }
+
     private function initializeProvider(): void {
+        $this->loadEnv();
         $this->provider = new GenericProvider([
-            'clientId'                => 'app1',
-            'clientSecret'            => 'erUErJCtpc4wpfaUoVnflHDXNx63uZG3',
-            'redirectUri'             => 'http://10.6.89.87:8001/',  // URL da sua aplicação
-            'urlAuthorize'            => 'http://10.6.89.87:8080/realms/dadm/protocol/openid-connect/auth',
-            'urlAccessToken'          => 'http://10.6.89.87:8080/realms/dadm/protocol/openid-connect/token',
-            'urlResourceOwnerDetails' => 'http://10.6.89.87:8080/realms/dadm/protocol/openid-connect/userinfo',
+            'clientId'                => $_ENV['CLIENT_ID'],
+            'clientSecret'            => $_ENV['CLIENT_SECRET'],
+            'redirectUri'             => $_ENV['REDIRECT_URI'], // URL da sua aplicação
+            'urlAuthorize'            => $_ENV['URL_AUTHORIZE'],
+            'urlAccessToken'          => $_ENV['URL_ACCESS_TOKEN'],
+            'urlResourceOwnerDetails' => $_ENV['URL_RESOURCE_OWNER_DETAILS'],
         ]);
     }
 }

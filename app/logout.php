@@ -1,17 +1,14 @@
 <?php
 
+use Symfony\Component\Dotenv\Dotenv;
+
 require 'vendor/autoload.php';
 
+// Limpar sessões
 session_start();
 session_unset();
 session_destroy();
 
-$redirectUri = 'http://localhost:8001/';
-$encodedRedirectUri = urlencode($redirectUri);
-
-// URL de logout do Keycloak
-$logoutUrl = "http://10.6.89.87:8080/realms/dadm/protocol/openid-connect/logout";
-
 // Redirecione o navegador para a URL de logout
-header("Location: $logoutUrl");
-exit();
+(new Dotenv())->load(__DIR__.'/.env');
+header("Location: ". $_ENV['URL_LOGOUT']);
