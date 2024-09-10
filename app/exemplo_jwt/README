@@ -1,0 +1,7 @@
+# Gerar chaves no Ubuntu
+
+# Gerar chaves privadas
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+
+# Gerar chaves publicas
+openssl rsa -pubout -in private_key.pem -out public_key.pem
