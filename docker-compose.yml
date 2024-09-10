@@ -1,6 +1,6 @@
 services:
-  app-php:
-    container_name: app-php
+  app-web:
+    container_name: app-web
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -8,9 +8,25 @@ services:
         http_proxy: ${http_proxy}
         https_proxy: ${https_proxy}
     volumes:
-      - ./app/:/app
+      - ./app-web/:/app
     ports:
       - "8001:8000"
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
+  microservice1:
+    container_name: microservice1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+    volumes:
+      - ./microservice1/:/app
+    ports:
+      - "8002:8000"
     environment:
       - http_proxy=${http_proxy}
       - https_proxy=${https_proxy}
