@@ -1,2 +1,5 @@
-# Excluir o diretório vendor
+# Excluir o diretório vendor gerado pelo composer
 /app/vendor/
+
+# Certificados
+/app/exemplo_jwt/*.pem
