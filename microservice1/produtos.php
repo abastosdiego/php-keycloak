@@ -1,5 +1,18 @@
 <?php
 
+// Obtém o cabeçalho Authorization
+$headers = getallheaders();
+
+if (!isset($headers['Authorization'])) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Authorization header not found']);
+    exit;
+}
+
+// Extrai o token JWT do cabeçalho Authorization
+$authHeader = $headers['Authorization'];
+$jwt = str_replace('Bearer ', '', $authHeader); // Remove "Bearer " do início
+
 // Define um array com 10 produtos de exemplo
 $produtos = [
     ["id" => 1, "nome" => "Smartphone Samsung Galaxy S21", "preco" => 699.99],

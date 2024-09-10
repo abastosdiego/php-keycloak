@@ -20,6 +20,16 @@ $apiUrl = 'http://microservice1:8000/produtos.php';
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+// Define o cabeçalho Authorization com o token JWT
+$jwtToken = $_SESSION['accessToken'];
+
+$headers = [
+    "Authorization: Bearer $jwtToken",
+    "Content-Type: application/json"
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
 // Faz a requisição GET para o microserviço
 $json = curl_exec($ch);
 
