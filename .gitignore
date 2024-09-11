@@ -1,5 +1,6 @@
 # Excluir o diretório vendor gerado pelo composer
 /app-web/vendor/
+/app-web2/vendor/
 /microservice1/vendor/
 
 # Certificados

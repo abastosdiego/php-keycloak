@@ -1,4 +1,8 @@
 <?php
+require 'vendor/autoload.php';
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 // Obtém o cabeçalho Authorization
 $headers = getallheaders();
@@ -13,6 +17,30 @@ if (!isset($headers['Authorization'])) {
 $authHeader = $headers['Authorization'];
 $jwt = str_replace('Bearer ', '', $authHeader); // Remove "Bearer " do início
 
+#// Ler chave pública
+$publicKeyPath = __DIR__ . '/public_key.pem';
+$publicKey = openssl_pkey_get_public(file_get_contents($publicKeyPath));
+
+if (!$publicKey) {
+    die('Erro ao carregar a chave pública: ' . openssl_error_string());
+}
+
+// Define o cabeçalho para JSON
+header('Content-Type: application/json');
+
+try {
+    $decoded = JWT::decode($jwt, new Key($publicKey, 'RS256'));
+    //$decoded_array = (array) $decoded;
+    //echo $decoded_array['name'] . "<br>";
+    //echo $decoded_array['email'] . "<br>";
+    //echo json_encode($decoded_array, true);
+    //exit;
+} catch (Throwable $ex) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Certificado inválido!']);
+    exit;
+}
+
 // Define um array com 10 produtos de exemplo
 $produtos = [
     ["id" => 1, "nome" => "Smartphone Samsung Galaxy S21", "preco" => 699.99],
@@ -26,9 +54,6 @@ $produtos = [
     ["id" => 9, "nome" => "Impressora HP OfficeJet Pro", "preco" => 199.99],
     ["id" => 10, "nome" => "Monitor LG UltraWide 34\"", "preco" => 349.99],
 ];
-
-// Define o cabeçalho para JSON
-header('Content-Type: application/json');
 
 // Converte o array para JSON e exibe
 echo json_encode($produtos);

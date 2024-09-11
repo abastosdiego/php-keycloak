@@ -26,7 +26,7 @@ if (!$accessToken || $accessToken->hasExpired()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicação 1</title>
+    <title>Aplicação 2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,11 +75,10 @@ if (!$accessToken || $accessToken->hasExpired()) {
 <body>
     <header>
         <div class="container">
-            <h1>Aplicação 1</h1>
+            <h1>Aplicação 2</h1>
             <nav>
                 <ul>
                     <li><a href="/logado.php">Início</a></li>
-                    <li><a href="/produtos.php">Produtos</a></li>
                     <li><a href="/logout.php">Logout</a></li>
                 </ul>
             </nav>
@@ -90,11 +89,6 @@ if (!$accessToken || $accessToken->hasExpired()) {
         <section>
             <h2>Bem-vindo <?php echo $_SESSION['user_full_name'] ?> !</h2>
             <p>Essa é a área logada do sistema.</p>
-        </section>
-
-        <section>
-            <h2>Nossos Produtos</h2>
-            <p>Veja nossa lista de <a href="/produtos.php">produtos</a> e descubra o que temos a oferecer.</p>
         </section>
     </div>
 

@@ -21,7 +21,7 @@ $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 // Define o cabeçalho Authorization com o token JWT
-$jwtToken = $_SESSION['accessToken'];
+$jwtToken = $accessToken->getToken();
 
 $headers = [
     "Authorization: Bearer $jwtToken",
@@ -149,8 +149,5 @@ $produtos = json_decode($json, true);
         </section>
     </div>
     
-    <footer>
-        <p>&copy; 2024 Minha Página de Exemplo</p>
-    </footer>
 </body>
 </html>
