@@ -78,7 +78,7 @@ if (!$accessToken || $accessToken->hasExpired()) {
             <h1>Aplicação 1</h1>
             <nav>
                 <ul>
-                    <li><a href="/logado.php">Início</a></li>
+                    <li><a href="/">Início</a></li>
                     <li><a href="/produtos.php">Produtos</a></li>
                     <li><a href="/logout.php">Logout</a></li>
                 </ul>
