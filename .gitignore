@@ -6,3 +6,7 @@
 
 # Certificados
 /app-web/exemplo_jwt/*.pem
+
+# Variáveis de ambiente e secret (que não pode ser versionado)
+/app-web/.env
+/app-web2/.env
