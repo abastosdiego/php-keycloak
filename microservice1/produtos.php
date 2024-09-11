@@ -37,7 +37,7 @@ try {
     //exit;
 } catch (Throwable $ex) {
     http_response_code(500);
-    echo json_encode(['error' => 'Certificado inválido!']);
+    echo json_encode(['error' => 'JWT inválido!']);
     exit;
 }
 

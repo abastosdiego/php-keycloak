@@ -43,7 +43,7 @@ $produtos = json_decode($json, true);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha aplicação Web de exemplo</title>
+    <title>Aplicação 1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -108,7 +108,7 @@ $produtos = json_decode($json, true);
 <body>
     <header>
         <div class="container">
-            <h1>Aplicação Web de exemplo</h1>
+            <h1>Aplicação 1</h1>
             <nav>
                 <ul>
                     <li><a href="/logado.php">Início</a></li>
