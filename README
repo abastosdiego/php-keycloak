@@ -9,3 +9,6 @@ https://www.keycloak.org/docs/latest/upgrading/index.html#userinfo-endpoint-chan
 
 ### Criei o docker-compose.yml baseado no comando "docker run" da documentação.
 https://www.keycloak.org/getting-started/getting-started-docker
+
+### Add Attribute in token
+https://stackoverflow.com/questions/76915137/how-can-i-add-attributes-with-the-keycloak-mappers-and-be-able-to-see-these-attr
