@@ -11,7 +11,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class HelloController extends AbstractController
 {
-    //#[IsGranted('ROLE_USER')]
+    #[IsGranted('ROLE_USER')]
     #[Route('/hello', name: 'app_hello')]
     public function index(Security $security): JsonResponse
     {

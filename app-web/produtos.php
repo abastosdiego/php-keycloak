@@ -14,7 +14,7 @@ if (!$accessToken || $accessToken->hasExpired()) {
 }
 
 // URL do microserviço
-$apiUrl = 'http://microservice1:8000/produtos.php';
+$apiUrl = 'http://microservice-php:8000/produtos.php';
 
 // Inicializa a sessão cURL
 $ch = curl_init($apiUrl);

@@ -98,6 +98,7 @@ if (!$accessToken || $accessToken->hasExpired()) {
         </section>
         <section>
             <p><?php echo $accessToken->getToken() ?></p>
+            <p><?php echo date('Y-m-d H:i:s', $accessToken->getExpires())?></p>
         </section>
     </div>
 

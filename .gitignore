@@ -1,15 +1,15 @@
 # Excluir o diretório vendor gerado pelo composer
 /app-web/vendor/
 /app-web2/vendor/
-/app-symfony/vendor/
-/microservice1/vendor/
+/microservice-symfony/vendor/
+/microservice-php/vendor/
 
 # Certificados
 /app-web/exemplo_jwt/*.pem
 /app-web/*.pem
 /app-web2/*.pem
-/app-symfony/*.pem
-/microservice1/*.pem
+/microservice-symfony/*.pem
+/microservice-php/*.pem
 
 # Variáveis de ambiente e secret (que não pode ser versionado)
 /app-web/.env
