@@ -4,63 +4,63 @@ services:
     build:
       context: ./docker/php
       dockerfile: Dockerfile
-#      args:
-#        http_proxy: ${http_proxy}
-#        https_proxy: ${https_proxy}
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
     volumes:
       - ./app-web/:/app
     ports:
       - "8001:8000"
-#    environment:
-#      - http_proxy=${http_proxy}
-#      - https_proxy=${https_proxy}
-#      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
   app-web2:
     container_name: app-web2
     build:
       context: ./docker/php
       dockerfile: Dockerfile
-#      args:
-#        http_proxy: ${http_proxy}
-#        https_proxy: ${https_proxy}
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
     volumes:
       - ./app-web2/:/app
     ports:
       - "8002:8000"
-#    environment:
-#      - http_proxy=${http_proxy}
-#      - https_proxy=${https_proxy}
-#      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
   app-symfony:
     container_name: app-symfony
     build:
       context: ./docker/symfony
       dockerfile: Dockerfile
-#      args:
-#        http_proxy: ${http_proxy}
-#        https_proxy: ${https_proxy}
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
     volumes:
       - ./app-symfony/:/app
     ports:
       - "8003:8000"
-#    environment:
-#      - http_proxy=${http_proxy}
-#      - https_proxy=${https_proxy}
-#      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice1
   microservice1:
     container_name: microservice1
     build:
       context: ./docker/php
       dockerfile: Dockerfile
-#      args:
-#        http_proxy: ${http_proxy}
-#        https_proxy: ${https_proxy}
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
     volumes:
       - ./microservice1/:/app
-#    environment:
-#      - http_proxy=${http_proxy}
-#      - https_proxy=${https_proxy}
-#      - no_proxy=localhost,10.6.80.*,10.6.89.*
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*
   keycloak:
     container_name: keycloak
     image: quay.io/keycloak/keycloak:25.0.4
@@ -72,9 +72,9 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     command: start-dev
-  postgres:
+  postgres_symfony:
     image: postgres:16
-    container_name: postgres
+    container_name: postgres_symfony
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -82,7 +82,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
 volumes:
   keycloak_data:

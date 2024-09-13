@@ -8,6 +8,7 @@
 /app-web/exemplo_jwt/*.pem
 /app-web/*.pem
 /app-web2/*.pem
+/app-symfony/*.pem
 /microservice1/*.pem
 
 # Variáveis de ambiente e secret (que não pode ser versionado)

@@ -96,6 +96,9 @@ if (!$accessToken || $accessToken->hasExpired()) {
             <h2>Nossos Produtos</h2>
             <p>Veja nossa lista de <a href="/produtos.php">produtos</a> e descubra o que temos a oferecer.</p>
         </section>
+        <section>
+            <p><?php echo $accessToken->getToken() ?></p>
+        </section>
     </div>
 
     <footer>
