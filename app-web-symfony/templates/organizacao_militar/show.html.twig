@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrganizacaoMilitar{% endblock %}
+
+{% block body %}
+    <h1>OrganizacaoMilitar</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ organizacao_militar.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ organizacao_militar.nome }}</td>
+            </tr>
+            <tr>
+                <th>Sigla</th>
+                <td>{{ organizacao_militar.sigla }}</td>
+            </tr>
+            <tr>
+                <th>Indicativo</th>
+                <td>{{ organizacao_militar.indicativo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_organizacao_militar_index') }}">back to list</a>
+
+    <a href="{{ path('app_organizacao_militar_edit', {'id': organizacao_militar.id}) }}">edit</a>
+
+    {{ include('organizacao_militar/_delete_form.html.twig') }}
+{% endblock %}

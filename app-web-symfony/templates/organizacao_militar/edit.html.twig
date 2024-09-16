@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OrganizacaoMilitar{% endblock %}
+
+{% block body %}
+    <h1>Edit OrganizacaoMilitar</h1>
+
+    {{ include('organizacao_militar/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_organizacao_militar_index') }}">back to list</a>
+
+    {{ include('organizacao_militar/_delete_form.html.twig') }}
+{% endblock %}
