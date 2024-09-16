@@ -3,6 +3,7 @@
 /app-web2/vendor/
 /microservice-symfony/vendor/
 /microservice-php/vendor/
+/app-web-symfony/vendor/
 
 # Certificados
 /app-web/exemplo_jwt/*.pem

@@ -61,6 +61,22 @@ services:
       - http_proxy=${http_proxy}
       - https_proxy=${https_proxy}
       - no_proxy=localhost,10.6.80.*,10.6.89.*
+  app-web-symfony:
+    container_name: app-web-symfony
+    build:
+      context: ./docker/symfony
+      dockerfile: Dockerfile
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+    volumes:
+      - ./app-web-symfony/:/app
+    ports:
+      - "8004:8000"
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice-php
   keycloak:
     container_name: keycloak
     image: quay.io/keycloak/keycloak:25.0.4

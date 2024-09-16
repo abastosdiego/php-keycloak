@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Organizações Militares{% endblock %}
+
+{% block body %}
+    <h1>Lista de Organizações Militares</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Sigla</th>
+                <th>Indicativo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for organizacao_militar in organizacao_militars %}
+            <tr>
+                <td>{{ organizacao_militar.id }}</td>
+                <td>{{ organizacao_militar.nome }}</td>
+                <td>{{ organizacao_militar.sigla }}</td>
+                <td>{{ organizacao_militar.indicativo }}</td>
+                <td>
+                    <a href="{{ path('app_organizacao_militar_show', {'id': organizacao_militar.id}) }}">Visualizar</a>
+                    <a href="{{ path('app_organizacao_militar_edit', {'id': organizacao_militar.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_organizacao_militar_new') }}">Novo</a>
+{% endblock %}
