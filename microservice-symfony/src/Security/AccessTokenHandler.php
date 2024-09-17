@@ -23,14 +23,14 @@ class AccessTokenHandler implements AccessTokenHandlerInterface
         //if (null === $accessToken) {
         //    throw new BadCredentialsException('Invalid credentials.');
         //}
-
+        
         $publicKeyPath = __DIR__ . '/../../public_key.pem';
         $publicKey = openssl_pkey_get_public(file_get_contents($publicKeyPath));
 
         $decoded = JWT::decode($accessToken, new Key($publicKey, 'RS256'));
         $decoded_array = (array) $decoded;
 
-        $this->logger->info('########## username token jwt: '. $decoded_array['preferred_username']);
+        $this->logger->info('Token do usuário '. $decoded_array['preferred_username'] . ' válido!');
 
         // and return a UserBadge object containing the user identifier from the found token
         // (this is the same identifier used in Security configuration; it can be an email,
