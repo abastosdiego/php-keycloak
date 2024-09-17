@@ -1,6 +1,0 @@
-{
-    "require": {
-        "league/oauth2-client": "^2.7",
-        "symfony/dotenv": "^7.1"
-    }
-}

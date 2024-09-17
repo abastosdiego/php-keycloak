@@ -9,3 +9,7 @@ https://www.keycloak.org/docs/latest/upgrading/index.html#userinfo-endpoint-chan
 
 ### Criei o docker-compose.yml baseado no comando "docker run" da documentação.
 https://www.keycloak.org/getting-started/getting-started-docker
+
+### Instalando bootstrap em projeto symfony via npm
+https://www.youtube.com/watch?v=GTqvdBDr4rQ
+https://symfony.com/doc/current/frontend/encore/bootstrap.html

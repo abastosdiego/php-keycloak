@@ -7,6 +7,11 @@ $provider = GenericProviderSingleton::getInstance()->getProvider();
 // If we don't have an authorization code then get one
 if (!isset($_GET['code'])) {
 
+    // Limpar sessões
+    session_start();
+    session_unset();
+    session_destroy();
+
     $authorizationUrl = $provider->getAuthorizationUrl([
         'scope' => ['openid'] // Para o método getResourceOwner() funcionar, precisa incluir o openid no scope.
     ]);
