@@ -16,11 +16,30 @@ class LoginController extends AbstractController
     #[Route(path: '/', name: 'app_index')]
     public function index(): Response
     {
-        return $this->redirectToRoute('app_organizacao_militar_index');
+        return $this->redirectToRoute('app_login');
     }
 
     #[Route(path: '/login', name: 'app_login')]
     public function login(Security $security, UsuarioRepository $usuarioRepository, EntityManagerInterface $entityManager): Response
+    {
+        $provider = GenericProviderSingleton::getInstance()->getProvider();
+
+        // If we don't have an authorization code then get one
+        if (!isset($_GET['code'])) {
+
+            // Para o método getResourceOwner() funcionar, precisa incluir o openid no scope.
+            $authorizationUrl = $provider->getAuthorizationUrl([
+                'scope' => ['openid']
+            ]);
+
+            // Redirect the user to the authorization URL.
+            return $this->redirect($authorizationUrl);
+
+        }
+    }
+
+    #[Route(path: '/dologin', name: 'app_do_login')]
+    public function dologin(Security $security, UsuarioRepository $usuarioRepository, EntityManagerInterface $entityManager): Response
     {
         $provider = GenericProviderSingleton::getInstance()->getProvider();
 
@@ -30,12 +49,7 @@ class LoginController extends AbstractController
         ]);
 
         // If we don't have an authorization code then get one
-        if (!isset($_GET['code'])) {
-
-            // Redirect the user to the authorization URL.
-            return $this->redirect($authorizationUrl);
-
-        } else {
+        if (isset($_GET['code'])) {
 
             try {
         
