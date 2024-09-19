@@ -66,17 +66,17 @@ services:
     build:
       context: ./docker/symfony
       dockerfile: Dockerfile
-#      args:
-#        http_proxy: ${http_proxy}
-#        https_proxy: ${https_proxy}
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
     volumes:
       - ./app-gestao-om/:/app
     ports:
       - "8004:8000"
-#    environment:
-      #- http_proxy=${http_proxy}
-      #- https_proxy=${https_proxy}
-#      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice-php
+    environment:
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=localhost,10.6.80.*,10.6.89.*,microservice-php
   app-gestao-usuario:
     container_name: app-gestao-usuario
     build:

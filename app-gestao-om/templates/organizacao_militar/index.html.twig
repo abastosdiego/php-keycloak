@@ -4,7 +4,9 @@
 
 {% block body %}
     <h1>Lista de Organizações Militares</h1>
-
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p style="color:blue;">Bem-vindo: {{ app.user.username }}!</p>
+    {% endif %}
     <table class="table">
         <thead>
             <tr>
