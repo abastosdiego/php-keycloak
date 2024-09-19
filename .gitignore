@@ -3,7 +3,8 @@
 /app-web2/vendor/
 /microservice-symfony/vendor/
 /microservice-php/vendor/
-/app-web-symfony/vendor/
+/app-gestao-om/vendor/
+
 
 # Certificados
 /app-web/exemplo_jwt/*.pem
@@ -15,3 +16,4 @@
 # Variáveis de ambiente e secret (que não pode ser versionado)
 /app-web/.env
 /app-web2/.env
+/app-gestao-om/.env.local
