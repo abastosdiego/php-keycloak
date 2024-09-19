@@ -12,3 +12,6 @@ https://www.keycloak.org/getting-started/getting-started-docker
 
 ### Add Attribute in token
 https://stackoverflow.com/questions/76915137/how-can-i-add-attributes-with-the-keycloak-mappers-and-be-able-to-see-these-attr
+
+### Configurando o PHP XDebug com docker
+https://www.youtube.com/watch?v=it7JQKPfWTU&t=226s
